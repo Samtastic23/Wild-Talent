@@ -7,7 +7,7 @@ foot = f"{ctx.prefix}{ctx.alias}"
 if v:
     ch.mod_cc(cc, -1) if not i else ''
     return f"""cc reset "Wild Talent Die" """ 
-    return f""" embed -title "{name} used{cc}!" |-f "{f}" -f "{foot}" """
+
 else:
     return f"""embed -title "{name} tries to use the {cc}!" -desc "You're all out of uses!" -f "{f}" -f "{cc}|{ch.cc_str(cc)}" -footer "{foot}" """
 </drac2> -thumb https://static.wikia.nocookie.net/spore/images/9/96/Psionic_Symbol.png/revision/latest/top-crop/width/360/height/450?cb=20200902184327
