@@ -1,0 +1,13 @@
+!alias pr <drac2>
+(ch:=character()).create_cc_nx((cc:="Psi Replenishment"),0,1,'long','bubble')
+i = argparse(&ARGS&).get('i')
+v = ch.get_cc(cc) or i
+f = "As a bonus action, you can calm your mind for a moment and restore your Wild Talent die to its starting size. You then can’t use Psi Replenishment again until you finish a long rest."
+foot = f"{ctx.prefix}{ctx.alias}"
+if v:
+    ch.mod_cc(cc, -1) if not i else ''
+    return f"""cc reset "Wild Talent Die" """ 
+    return f""" embed -title "{name} used{cc}!" |-f "{f}" -f "{foot}" """
+else:
+    return f"""embed -title "{name} tries to use the {cc}!" -desc "You're all out of uses!" -f "{f}" -f "{cc}|{ch.cc_str(cc)}" -footer "{foot}" """
+</drac2> -thumb https://static.wikia.nocookie.net/spore/images/9/96/Psionic_Symbol.png/revision/latest/top-crop/width/360/height/450?cb=20200902184327
