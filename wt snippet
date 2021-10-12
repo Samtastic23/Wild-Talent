@@ -1,0 +1,22 @@
+!snippet wt <drac2> 
+ch=character()
+cc="Wild Talent Die"
+ccex=ch.cc_exists(cc)
+
+if not ccex:
+  return
+
+intSize=ch.get_cc(cc)
+size = 4 + (intSize - 1) *2
+result = vroll(f"1d{size}")
+
+addTxt=""
+if (result.total == size) and (intSize > 1):
+  ch.mod_cc(cc, -1)
+  addTxt="Your die has decreased once!"
+if (result.total == 1) and (intSize < 5): 
+  ch.mod_cc(cc, 1)
+  addTxt="Your die has increased once!"
+
+return f"""-b {result.total} -f "Wild Talent|You Rolled: {result.full}. {addTxt}" """
+</drac2>
